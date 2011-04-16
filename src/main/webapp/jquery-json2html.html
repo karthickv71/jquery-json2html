@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>jquery-json2html plugin test page</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+    <script type="text/javascript" src="./jquery-json2html.js"></script>
+    <script type="text/javascript">
+        var json = {
+            br:new Array(3),
+            form:{
+                action:"http://code.google.com/hosting/search",
+                method:"get",
+                input:[
+                    {
+                        type:"hidden",
+                        name:"q",
+                        value:"jquery"
+                    },
+                    {
+                        type:"submit",
+                        value:"search"
+                    }
+                ]
+            }
+        };
+
+        function show() {
+            try {
+                var html = $.jsonToHtml(json);
+                jQuery("#txt").html(html);
+            } catch(e) {
+                alert(e);
+            }
+        }
+    </script>
+</head>
+
+<body style="padding:50px;">
+<input type="button" onclick="show();" value=" json2html "/>
+
+<div style="clear:both;"><!--//--></div>
+
+<textarea id="txt" rows="10" cols="5" style="width:600px;border:1px solid gray"><!--//--></textarea>
+</body>
+
+</html>
